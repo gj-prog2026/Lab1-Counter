@@ -4,6 +4,8 @@
 rm -rf obj_dir
 rm -f counter.vcd
 
+~/Documents/iac/lab0-devtools/tools/attach_usb.sh
+sleep 2     # wait to make sure the VBuddy is found
 
 # run Verilator to translate Verilog into C++, including C++ testbench
 verilator -Wall --cc --trace rtl/counter.sv --exe tests/counter_tb.cpp

@@ -16,7 +16,7 @@ int main(int argc, char **argv, char **env){
     top->trace(tfp, 99);
     tfp->open("counter.vcd");
 
-    if(!vbdOpen()) return (-1);
+    if(vbdOpen() != 1) return (-1);
     vbdHeader("Lab 1: Counter");
     sleep(3);
 
@@ -36,8 +36,10 @@ int main(int argc, char **argv, char **env){
         }
         // +++++ Send count value to Vbuddy
         vbdCycle(i+1);
-        vbdHex(4, (int(top->count) >> 16) & 0xF);
-        vbdHex(3, (int(top->count) >> 8) & 0xF);
+        // temporarily removed the first 2 digits displayed
+        // as count would never get to it being 8-bit
+        // vbdHex(4, (int(top->count) >> 16) & 0xF);
+        // vbdHex(3, (int(top->count) >> 8) & 0xF);
         vbdHex(2, (int(top->count) >> 4) & 0xF);
         vbdHex(1, (int(top->count)) & 0xF);
         
