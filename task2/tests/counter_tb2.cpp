@@ -38,10 +38,9 @@ int main(int argc, char **argv, char **env){
         // ----- end of Vbuddy output section
 
         top->rst = (i < 2) | (i == 15);
-        top->en = (i > 4);
+        top->en = vbdFlag();
         if(Verilated::gotFinish())  exit(0);
     }
-    top->en = vbdFlag();
     vbdClose();
     tfp->close();
     exit(0);

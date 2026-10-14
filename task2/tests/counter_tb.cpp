@@ -36,10 +36,10 @@ int main(int argc, char **argv, char **env){
         }
         // +++++ Send count value to Vbuddy
         vbdCycle(i+1);
-        // temporarily removed the first 2 digits displayed
+        // can be removed the first 2 digits displayed
         // as count would never get to it being 8-bit
-        // vbdHex(4, (int(top->count) >> 16) & 0xF);
-        // vbdHex(3, (int(top->count) >> 8) & 0xF);
+        vbdHex(4, (int(top->count) >> 16) & 0xF);
+        vbdHex(3, (int(top->count) >> 8) & 0xF);
         vbdHex(2, (int(top->count) >> 4) & 0xF);
         vbdHex(1, (int(top->count)) & 0xF);
         
